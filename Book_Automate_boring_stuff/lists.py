@@ -34,4 +34,25 @@ print(spam)
 
 #---------------------------
 
+# list concatenation and List 
+
+[1,2,3] + ["A","b","C"]
+
+spam = [1,2,3]
+spam = spam + ["A","b","C"]
+print(spam)
+
+
+# Removing values from list with del statement
+
+spam = ["cat","bat","rat","elephant"]
+
+del spam[1:3]
+
+print(spam)
+
+
+
+#------------------------------
+
 
