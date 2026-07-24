@@ -44,3 +44,16 @@ Built: get_video_stats() — extracts title, likes,
        subscribers from a nested video dictionary
 What broke: Got some what confused that how the function will take the dictionary.
 What surprised me:we can pass any this in the function , like any thing whether it is a list, dictionary or a string it doen,t matter
+
+## Revision Day — Days 1-5 Review
+Built: check_views(), enumerate channels, 
+       channel_summary() with nested access
+What broke: and <10000 syntax, f-string without 
+            curly braces, wrong division syntax
+What surprised me:when accesing from dictionary and if have to the the value again for division and so then i have have to acces it from the start.
+
+## Day 7 — While Loops
+Concept: while True, break, return to escape, input inside loop
+Built: ask_until_valid(), password checker, get_valid_operation()
+What broke: didn't know where to put the loop — inside function
+What surprised me: input() must be inside loop, break vs return
