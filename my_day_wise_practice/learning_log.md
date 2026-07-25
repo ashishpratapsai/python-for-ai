@@ -57,3 +57,15 @@ Concept: while True, break, return to escape, input inside loop
 Built: ask_until_valid(), password checker, get_valid_operation()
 What broke: didn't know where to put the loop — inside function
 What surprised me: input() must be inside loop, break vs return
+
+
+## Day 8 — Data Types
+Concept: str, int, float, bool, NoneType, 
+         type conversion, try/except
+Built: describe_value() — type, value, can_do_math
+       safe_to_number() — graceful type conversion
+What broke: Nothing broke today.
+What surprised me: If you don't store a result with =, 
+                   Python throws it away immediately. 
+                   int(value) and number = int(value) 
+                   look similar but are completely different.
