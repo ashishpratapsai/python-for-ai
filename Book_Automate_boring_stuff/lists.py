@@ -55,4 +55,29 @@ print(spam)
 
 #------------------------------
 
+#-------------Methods----------------#
 
+#finding a value in a list with index() method
+
+spam = ["hello","hi","howdy","heyas"]
+spam.index("heyas")
+
+spam.index("hello")
+
+#-----------------------------------------------
+
+#Adding values to lists using append() and insert() method- these methods can only be used in the list value
+
+spam = ["cat","dog","bat"]
+spam.append("moose")
+print(spam)
+
+spam.insert(1,"chicken")
+print(spam)
+
+
+#removing values from the list with remove()
+
+spam = ["cat","dog","bat"]
+spam.remove("cat")
+print(spam)
