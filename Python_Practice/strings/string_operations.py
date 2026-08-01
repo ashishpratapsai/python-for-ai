@@ -7,8 +7,7 @@ print(len(s1))
 language = "Python"
 version = "3.13.3"
 print(language + version)
-print("Python" = "p") # it will give error
-
+print("Python" + "p") 
 
 
 s2 = "Python"
