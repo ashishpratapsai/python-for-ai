@@ -1,7 +1,7 @@
 
 s1 =[2,7,0,9,5,6]
 
-#slicing the string
+#slicing the list
 
 print(s1[1:4:1])
 
