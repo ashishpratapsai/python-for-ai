@@ -69,3 +69,17 @@ What surprised me: If you don't store a result with =,
                    Python throws it away immediately. 
                    int(value) and number = int(value) 
                    look similar but are completely different.
+
+
+## Day 9 — Lists and List Methods
+Concept: list methods, list comprehension, 
+         slicing, negative indexing, strip()
+Built: filter_videos() — comprehension, sort, strip
+       video_stats() — total, longest, shortest
+What broke: Forgot to initialize longest_count and 
+            smallest_count before the loop. Variables 
+            must be set before the loop runs.
+What surprised me: len(videos) counts list items. 
+                   len(video.split()) counts words. 
+                   Same function, completely different 
+                   result based on what you pass in.
