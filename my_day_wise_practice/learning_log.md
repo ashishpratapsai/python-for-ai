@@ -83,3 +83,15 @@ What surprised me: len(videos) counts list items.
                    len(video.split()) counts words. 
                    Same function, completely different 
                    result based on what you pass in.
+
+
+
+## Day 10 — String Methods
+Concept: strip, title, upper, lower, replace,
+         split, startswith, endswith, in, len
+Built: format_student() — cleans messy Institura student data
+       analyze_batch() — parses IIT-JEE batch codes
+What broke: Wrapped split() in [] making list inside list.
+            Used parts[2] without defining parts first.
+What surprised me: split() already returns a list. 
+                   Never wrap it in [] again.
