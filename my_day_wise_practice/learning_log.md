@@ -95,3 +95,16 @@ What broke: Wrapped split() in [] making list inside list.
             Used parts[2] without defining parts first.
 What surprised me: split() already returns a list. 
                    Never wrap it in [] again.
+
+
+
+## Day 11 — Error Handling
+Concept: try/except, ValueError, KeyError, 
+         AttributeError, .get(), or for None defaults
+Built: safe_parse_student() — handles missing fields,
+       wrong types, None values, messy strings
+What broke: Put two conversions in one try block —
+            first failure killed second silently
+What surprised me: One try block = one risky operation.
+                   Never combine. Each failure must be
+                   caught independently.
