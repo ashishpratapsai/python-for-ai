@@ -108,3 +108,20 @@ What broke: Put two conversions in one try block —
 What surprised me: One try block = one risky operation.
                    Never combine. Each failure must be
                    caught independently.
+
+
+
+
+## Day 12 — File I/O
+Concept: open(), read/write/append modes,
+         with statement, readlines(), strip(), split()
+Built: save_students() — writes student list to file
+       read_students() — reads file back to list of dicts
+What broke: Called .split().split() — chained two splits
+            instead of .strip().split(). Lists don't have
+            .split() method, only strings do.
+What surprised me: open() and the loop are separate steps.
+                   First open the file, then loop inside it.
+                   readlines() gives a list — each line is
+                   a string with \n at the end.
+                   strip() then split() — always in that order.
