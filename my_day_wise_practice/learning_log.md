@@ -125,3 +125,19 @@ What surprised me: open() and the loop are separate steps.
                    readlines() gives a list — each line is
                    a string with \n at the end.
                    strip() then split() — always in that order.
+
+## Day 13 — *args and **kwargs
+Concept: *args collects positional args as tuple,
+         **kwargs collects keyword args as dictionary
+Built: calculate_total(*args) — total and average of any marks
+       create_student(**kwargs) — flexible student dictionary  
+       create_report(*args, **kwargs) — combined both
+What broke: Tried to use length variable outside function —
+            variables defined inside function don't exist outside.
+            Stored kwargs in unnecessary variable — 
+            kwargs is already a dictionary, access directly.
+What surprised me: kwargs is already a dictionary — no need to 
+                   store in another variable. Access with kwargs["key"]
+                   or kwargs.get("key", default) directly.
+                   Compute first, store in variables, then map to 
+                   dictionary — that's clean professional Python.
