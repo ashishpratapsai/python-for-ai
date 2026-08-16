@@ -141,3 +141,18 @@ What surprised me: kwargs is already a dictionary — no need to
                    or kwargs.get("key", default) directly.
                    Compute first, store in variables, then map to 
                    dictionary — that's clean professional Python.
+
+
+
+
+## Day 14 — Lambda Functions
+Concept: lambda syntax, key=lambda in sorted(),
+         filter(), map(), dictionary unpacking {**s}
+Built: classify, format_name, sorted by marks/name,
+       filter IIT-JEE students, map grades to students
+What broke: Nothing broke today.
+What surprised me: Instead of defining a separate function
+                   just to pass to sorted() or filter(),
+                   lambda lets you write it inline in one line.
+                   filter removes items. map transforms items.
+                   Same size list vs smaller list — key difference.
