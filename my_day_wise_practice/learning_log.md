@@ -156,3 +156,22 @@ What surprised me: Instead of defining a separate function
                    lambda lets you write it inline in one line.
                    filter removes items. map transforms items.
                    Same size list vs smaller list — key difference.
+
+
+
+## Day 15 — Basic OOP (Classes and Objects)
+Concept: class, __init__, self, methods, objects,
+         class dependency, objects inside objects
+Built: Student class — get_grade(), get_status(),
+       is_pass(), to_dict(), summary()
+       Batch class — add_student(), get_topper(),
+       get_average(), get_summary()
+What broke: Removed Student class — NameError proved
+            Batch depends on Student. Order matters.
+What surprised me: Classes can depend on each other —
+                   Batch uses Student objects inside it.
+                   self is passed automatically by Python
+                   when calling a method — you write it
+                   in definition but never in the call.
+                   Position of arguments determines which
+                   value goes to which parameter.
