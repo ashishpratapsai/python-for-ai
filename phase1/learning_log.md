@@ -184,3 +184,15 @@ What broke: Hardcoded filename instead of using
             of readlines().
 What surprised me: lines[1:] — one slice skips the 
                    entire header row. Clean and simple.
+
+
+## Day 18 — Project: Institura Student Processor (Day 2)
+Built: clean_student() — strips, titles, converts marks
+       load_students() — combines read + clean in one call
+       get_student_summary() — adds grade and status
+What broke: Semicolon instead of colon in load_students.
+            Used 'students' instead of 'student' parameter.
+            Incomplete if/else chain — last condition needs else.
+What surprised me: Python reads all function definitions first
+                   then executes from the first non-function line.
+                   Functions are preparation. The call is the trigger.
