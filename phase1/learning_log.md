@@ -196,3 +196,16 @@ What broke: Semicolon instead of colon in load_students.
 What surprised me: Python reads all function definitions first
                    then executes from the first non-function line.
                    Functions are preparation. The call is the trigger.
+
+
+
+## Day 19 — Project: Institura Student Processor (Day 3)
+Built: analyze_batch() — topper, average, pass/fail, fee counts
+       filter_by_batch() — filter students by batch name
+What broke: Typo pendind_count instead of pending_count —
+            Python created a new variable silently.
+            paid_count: pass_count — wrong variable name
+            in return dictionary.
+What surprised me: Same function analyze_batch() works on
+                   all students, IIT-JEE only, or NEET only
+                   — just change what you pass in.
