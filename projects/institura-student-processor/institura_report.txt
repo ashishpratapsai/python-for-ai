@@ -1,0 +1,51 @@
+========================================
+      INSTITURA STUDENT REPORT
+========================================
+
+OVERALL ANALYSIS
+-----------------
+Total Students : 8
+Topper         : Sneha Singh (96)
+Average Marks  : 54.88 
+Lowest Marks   : 0 
+Pass Count     : 5 
+Fail Count     : 3 
+Paid Fees      : 5 
+Pending Fees   : 3 
+
+IIT-JEE-2026
+-----------------
+Total students : 4
+Topper         : Rahul Sharma (85)
+Average Marks  : 40.75
+Lowest Marks   : 0
+Pass Count     : 2
+Fail Count     : 2
+Paid Count     : 1
+Pending Fees   : 3
+
+NEET-2026
+------------
+Total Student : 4
+Topper        : Sneha Singh (96)
+Average Marks : 69.00
+Lowest Marks  : 0
+Pass Count    : 3
+Fail Count    : 1
+Paid Count    : 4
+Pending Count : 0
+
+STUDENT DETAILS
+------------------
+R001 | Rahul Sharma | 85 | B | Pass | paid
+R002 | Priya Patel | 92 | A | Pass | paid
+R003 | Amit Kumar | 0 | F | Fail | pending
+R004 | Sneha Singh | 96 | A | Pass | paid
+R005 | Rohan Verma | 78 | B | Pass | pending
+R006 | Pooja Sharma | 0 | F | Fail | paid
+R007 | Arjun Kumar | 0 | F | Fail | pending
+R008 | Meera Patel | 88 | B | Pass | paid
+
+========================================
+           END OF REPORT
+========================================

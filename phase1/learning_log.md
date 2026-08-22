@@ -209,3 +209,13 @@ What broke: Typo pendind_count instead of pending_count —
 What surprised me: Same function analyze_batch() works on
                    all students, IIT-JEE only, or NEET only
                    — just change what you pass in.
+
+
+## Day 20 — Project: Institura Student Processor (Day 4)
+Built: generate_report() — writes full analysis to text file
+What broke: Two with open() blocks — second overwrote first.
+            NERET typo — filter returned empty list silently.
+What surprised me: One with open() block handles everything.
+                   f-strings with :.2f format decimals cleanly.
+                   A real report generated from messy CSV data
+                   in under 100 lines of Python.
