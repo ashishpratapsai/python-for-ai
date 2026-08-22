@@ -84,7 +84,7 @@ def get_student_summary(student):
 def analyze_batch(students):
     marks_list = [s["marks"] for s in students]
     # topper — use max with lambda like day 14 
-    topper = max(students ,key=lambda s : s["marks"])
+    topper = max(students , key = lambda s : s["marks"])
     #counts -loop and count
     pass_count = 0
     fail_count = 0
@@ -121,10 +121,6 @@ def analyze_batch(students):
 
 
 
-
-
-
-
 # students =load_students("sample_students.csv")
 
 # print(analyze_batch(students))
@@ -144,3 +140,74 @@ print("NEET Analysis:")
 print(analyze_batch(neet))
 
 
+def generate_report(students,filename):
+    overall = analyze_batch(students)
+    iit = filter_by_batch(students, "IIT-JEE-2026")
+    iit_analysis = analyze_batch(iit)
+    neet = filter_by_batch(students, "NEET-2026")
+    neet_analysis = analyze_batch(neet)
+
+
+    with open(filename, "w") as file:
+        file.write("========================================\n")
+        file.write("      INSTITURA STUDENT REPORT\n")
+        file.write("========================================\n")
+        file.write("\nOVERALL ANALYSIS\n")
+        file.write("-----------------\n")
+        file.write(f"Total Students : {overall["total_student"]}\n")
+        file.write(f"Topper         : {overall["topper"]} ({overall["topper_marks"]})\n")
+        file.write(f"Average Marks  : {overall["average_marks"]:.2f} \n")
+        file.write(f"Lowest Marks   : {overall["lowest_marks"]} \n")
+        file.write(f"Pass Count     : {overall["pass_count"]} \n")
+        file.write(f"Fail Count     : {overall["fail_count"]} \n")
+        file.write(f"Paid Fees      : {overall["paid_count"]} \n")
+        file.write(f"Pending Fees   : {overall["pending_count"]} \n")
+
+         #IIT section
+
+    
+        file.write("\nIIT-JEE-2026\n")
+        file.write("-----------------\n")
+        file.write(f"Total students : {iit_analysis["total_student"]}\n")
+        file.write(f"Topper         : {iit_analysis["topper"]} ({iit_analysis["topper_marks"]})\n")
+        file.write(f"Average Marks  : {iit_analysis["average_marks"]:.2f}\n")
+        file.write(f"Lowest Marks   : {iit_analysis["lowest_marks"]}\n")
+        file.write(f"Pass Count     : {iit_analysis["pass_count"]}\n")
+        file.write(f"Fail Count     : {iit_analysis["fail_count"]}\n")
+        file.write(f"Paid Count     : {iit_analysis["paid_count"]}\n")
+        file.write(f"Pending Fees   : {iit_analysis["pending_count"]}\n")
+
+
+        # NEET sectiion
+
+
+        file.write("\nNEET-2026\n")
+        file.write("------------\n")
+        file.write(f"Total Student : {neet_analysis["total_student"]}\n")
+        file.write(f"Topper        : {neet_analysis["topper"]} ({neet_analysis["topper_marks"]})\n")
+        file.write(f"Average Marks : {neet_analysis["average_marks"]:.2f}\n")
+        file.write(f"Lowest Marks  : {neet_analysis["lowest_marks"]}\n")
+        file.write(f"Pass Count    : {neet_analysis["pass_count"]}\n")
+        file.write(f"Fail Count    : {neet_analysis["fail_count"]}\n")
+        file.write(f"Paid Count    : {neet_analysis["paid_count"]}\n")
+        file.write(f"Pending Count : {neet_analysis["pending_count"]}\n")
+
+
+
+        file.write("\nSTUDENT DETAILS\n")
+        file.write("------------------\n")
+        for student in students:
+            summary = get_student_summary(student)
+            file.write(f"{summary["roll_number"]} | {summary["name"]} | {summary["marks"]} | {summary["grade"]} | {summary["status"]} | {summary["fee_status"]}\n")
+            
+        file.write("\n========================================\n")
+        file.write("           END OF REPORT\n")
+        file.write("========================================\n")
+
+    print(f"Report saved to {filename}")
+
+
+
+
+students =load_students("sample_students.csv")
+generate_report(students,"institura_report.txt")
