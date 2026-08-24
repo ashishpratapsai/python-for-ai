@@ -219,3 +219,13 @@ What surprised me: One with open() block handles everything.
                    f-strings with :.2f format decimals cleanly.
                    A real report generated from messy CSV data
                    in under 100 lines of Python.
+
+
+## Day 21 — Project: Institura Student Processor (Day 5)
+Built: main.py — terminal menu with while True loop
+What broke: processor.py running code on import —
+            fixed with if __name__ == "__main__"
+            python vs python3 on Mac
+What surprised me: if __name__ == "__main__" — 
+                   code only runs when file is run directly,
+                   not when imported. Every Python file needs this.

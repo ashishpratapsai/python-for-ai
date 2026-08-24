@@ -129,15 +129,15 @@ def analyze_batch(students):
 
 def filter_by_batch(students, batch_name):
     return [s for s in students if s["batch"] == batch_name]
-students =load_students("sample_students.csv")
-iit = filter_by_batch(students, "IIT-JEE-2026")
-neet = filter_by_batch(students, "NEET-2026")
+# students =load_students("sample_students.csv")
+# iit = filter_by_batch(students, "IIT-JEE-2026")
+# neet = filter_by_batch(students, "NEET-2026")
 
-print("IIT-JEE Analysis:")
-print(analyze_batch(iit))
+# print("IIT-JEE Analysis:")
+# print(analyze_batch(iit))
 
-print("NEET Analysis:")
-print(analyze_batch(neet))
+# print("NEET Analysis:")
+# print(analyze_batch(neet))
 
 
 def generate_report(students,filename):
@@ -209,5 +209,16 @@ def generate_report(students,filename):
 
 
 
-students =load_students("sample_students.csv")
-generate_report(students,"institura_report.txt")
+# students =load_students("sample_students.csv")
+# generate_report(students,"institura_report.txt")
+
+
+if __name__ == "__main__":
+    students = load_students("sample_students.csv")
+    iit = filter_by_batch(students, "IIT-JEE-2026")
+    neet = filter_by_batch(students, "NEET-2026")
+    print("IIT-JEE Analysis:")
+    print(analyze_batch(iit))
+    print("NEET Analysis:")
+    print(analyze_batch(neet))
+    generate_report(students, "institura_report.txt")
