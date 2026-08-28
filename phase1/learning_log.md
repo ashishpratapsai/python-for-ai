@@ -229,3 +229,22 @@ What broke: processor.py running code on import —
 What surprised me: if __name__ == "__main__" — 
                    code only runs when file is run directly,
                    not when imported. Every Python file needs this.
+
+## Day 22 — Project: Institura Student Processor (SHIPPED)
+Concept: README writing, final polish, shipping to GitHub
+Built: README.md — project description, how to run, what I learned
+       Final cleanup of processor.py — removed commented code
+       Fixed typo in main.py — IIt-JEE → IIT-JEE
+What broke: Nothing today — clean session.
+What surprised me: Writing the README in my own words made me 
+                   realise how much I actually built. Explaining 
+                   it to someone else is harder than building it.
+
+## Day 23 — Project 2: Transcript Extractor (Day 1)
+Built: read_transcript(), extract_keywords(), save_summary()
+What broke: return inside loop — returned first match only.
+            keywords.lower() on a list — should be keyword.lower()
+            results.count() — should be len(results)
+What surprised me: any() with generator expression — 
+                   checks all keywords in one line.
+                   join() converts list to clean string.
