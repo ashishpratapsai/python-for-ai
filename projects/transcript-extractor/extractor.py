@@ -5,25 +5,25 @@ def read_transcript(filepath):
     return [line.strip() for line in lines if line.strip()]
 
 
-transcript = read_transcript("sample_transcript.txt")
+# transcript = read_transcript("sample_transcript.txt")
 
 
 # print(read_transcript("sample_transcript.txt"))
 
-keywords = ["agent", "tool calling", "MCP", "Claude Code"]
+# keywords = ["agent", "tool calling", "MCP", "Claude Code"]
 
 # function to extract sentences which contain the keywords
 
-def extract_keywords(transcript, keywords):
+def key_moments(transcript, keywords):
     results = []
     for sentense in transcript:
         if any(keyword.lower() in sentense.lower() for keyword in keywords):
             results.append(sentense)
     return results
 
-results = extract_keywords(transcript, keywords)
-for result in results:
-    print(result)
+# results = key_moments(transcript, keywords)
+# for result in results:
+#     print(result)
 
 
 #writing the summary file
@@ -36,10 +36,17 @@ def save_summary(results, keywords, output_file):
       for sentence in results:
           file.write(f"- {sentence}\n")
                 
-save =save_summary(results,keywords,"transcript_summary.md")
+# save =save_summary(results,keywords,"transcript_summary.md")
 
 
 
+if __name__ == "__main__":
+    transcript = read_transcript("sample_transcript.txt")
+    keywords = ["Claude Code", "AI agents", "n8n", "automation", "MCP", "Python"]
+    results = key_moments(transcript, keywords)
+    for result in results:
+        print(result)
+    save_summary(results, keywords, "transcript_summary.md")  
 
 
 
