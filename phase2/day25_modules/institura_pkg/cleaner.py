@@ -1,0 +1,25 @@
+from .reader import read_students
+
+
+def clean_student(student):
+    try:
+        marks = int(student["marks"])
+    except ValueError:
+        marks = 0
+
+    return{
+        "roll_number": student["roll_number"].strip(),
+        "name": student["name"].strip().title(),
+        "batch": student["batch"].strip(),
+        "academic_year": student["academic_year"].strip(),
+        "personal_email": student["personal_email"].strip().lower(),
+        "phone": student["phone"].strip(),
+        "parent_name": student["parent_name"].strip().title(),
+        "parent_phone": student["parent_phone"].strip(),
+        "marks": marks,
+        "fee_status": student["fee_status"].strip().lower()
+    }
+
+def load_students(filepath):
+    raw_students = read_students(filepath)
+    return[clean_student(student) for student in raw_students]

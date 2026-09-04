@@ -248,3 +248,16 @@ What broke: return inside loop — returned first match only.
 What surprised me: any() with generator expression — 
                    checks all keywords in one line.
                    join() converts list to clean string.
+
+
+## Day 25 — Modules and Packages
+Concept: modules vs packages, __init__.py,
+         relative imports with dot notation,
+         separating concerns into different files
+Built: institura_pkg — reader.py, cleaner.py, analyzer.py
+What broke: readline() vs readlines() — one letter difference.
+            roll_numbber typo — KeyError.
+            Wrong import path — fixed with relative import .reader
+What surprised me: __init__.py empty file makes a folder 
+                   a package. The dot in .reader means 
+                   "same package I'm in."
