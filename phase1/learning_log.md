@@ -272,3 +272,14 @@ What broke: Calling code in analyzer.py outside
 What surprised me: Type hints don't change how code runs.
                    They document intent and help Claude Code
                    write better suggestions.
+
+## Day 27 — Pydantic
+Concept: BaseModel, field_validator, coercion,
+         validation errors, self-cleaning models
+Built: Student model (basic) and StudentV2 (with validators)
+       marks validation — no negative, no > 100
+       clean_name validator — auto strip and title case
+What broke: marks validator used v > 0 instead of v > 100
+What surprised me: Pydantic coerces "85" string to 85 int
+                   automatically. And validators can clean
+                   data — not just validate it.
