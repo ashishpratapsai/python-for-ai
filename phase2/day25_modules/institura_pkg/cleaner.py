@@ -1,7 +1,7 @@
 from .reader import read_students
 
 
-def clean_student(student):
+def clean_student(student:list[dict]) ->dict:
     try:
         marks = int(student["marks"])
     except ValueError:
@@ -20,6 +20,6 @@ def clean_student(student):
         "fee_status": student["fee_status"].strip().lower()
     }
 
-def load_students(filepath):
+def load_students(filepath: str) -> list[dict]:
     raw_students = read_students(filepath)
     return[clean_student(student) for student in raw_students]

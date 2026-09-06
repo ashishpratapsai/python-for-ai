@@ -1,4 +1,4 @@
-def read_students(filepath):
+def read_students(filepath: str) -> list[dict]:
     students = []
     with open(filepath, "r") as file:
         lines = file.readlines()

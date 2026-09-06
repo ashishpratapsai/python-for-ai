@@ -261,3 +261,14 @@ What broke: readline() vs readlines() — one letter difference.
 What surprised me: __init__.py empty file makes a folder 
                    a package. The dot in .reader means 
                    "same package I'm in."
+
+## Day 26 — Type Hints
+Concept: parameter types, return types, list[dict],
+         Optional, self-documenting code
+Built: Added type hints to all institura_pkg functions
+       get_batch_names() — returns unique batch names
+What broke: Calling code in analyzer.py outside 
+            if __name__ == "__main__" — NameError
+What surprised me: Type hints don't change how code runs.
+                   They document intent and help Claude Code
+                   write better suggestions.

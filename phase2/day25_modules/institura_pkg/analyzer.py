@@ -1,6 +1,6 @@
 
 
-def analyse_batch(students):
+def analyse_batch(students: list[dict])-> dict:
     marks_list = [s["marks"] for s in students]
     topper = max(students, key=lambda s : s["marks"] )
     #counts - loop and count
@@ -33,5 +33,11 @@ def analyse_batch(students):
     }
 
 
-def filter_by_batch(students, batch_name):
+def filter_by_batch(students: list[dict], batch_name: str)->list[dict]:
     return [s for s in students if s["batch"] == batch_name]
+
+def get_batch_names(students: list[dict]) ->list[str]:
+    all_batches = [s["batch"] for s in students]
+    unique = set(all_batches)
+    return list(unique)
+
