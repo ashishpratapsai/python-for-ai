@@ -283,3 +283,14 @@ What broke: marks validator used v > 0 instead of v > 100
 What surprised me: Pydantic coerces "85" string to 85 int
                    automatically. And validators can clean
                    data — not just validate it.
+
+## Day 28 — Environment Variables
+Concept: .env files, python-dotenv, os.getenv(),
+         .gitignore for secrets, .env.example pattern
+Built: Institute config loader — name, API key, debug, max students
+What broke: DEBUG = True with spaces — .env requires no spaces around =
+            Jupyter caches env vars — always use terminal for .env
+What surprised me: .env.example is what you push to GitHub —
+                   shows what variables exist without real values.
+                   os.getenv() safer than os.environ[] — 
+                   returns None instead of crashing.
