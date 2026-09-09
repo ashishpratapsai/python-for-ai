@@ -294,3 +294,17 @@ What surprised me: .env.example is what you push to GitHub —
                    shows what variables exist without real values.
                    os.getenv() safer than os.environ[] — 
                    returns None instead of crashing.
+
+
+## Day 29 — Logging
+Concept: logging levels, basicConfig, getLogger(__name__),
+         replacing print() with professional logging
+Built: Added logging to reader.py and cleaner.py
+       INFO for successful operations
+       WARNING for corrupted lines and invalid marks
+What broke: %(levrlname)s typo — one letter breaks the format
+What surprised me: level=logging.WARNING hides debug and info
+                   automatically — one line controls all verbosity.
+                   %(name)s shows which module logged — 
+                   institura_pkg.reader tells you exactly where.
+

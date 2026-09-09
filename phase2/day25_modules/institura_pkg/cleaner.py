@@ -1,10 +1,14 @@
 from .reader import read_students
+#updated: Day 29
+import logging
 
+logger = logging.getLogger(__name__)
 
 def clean_student(student:list[dict]) ->dict:
     try:
         marks = int(student["marks"])
     except ValueError:
+        logger.warning(f"Invalid marks for {student["roll_number"]}: '{student["marks"]}' - defaulting to 0")
         marks = 0
 
     return{

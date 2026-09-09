@@ -1,3 +1,10 @@
+
+# Updated: Day 29
+import logging
+
+logger = logging.getLogger(__name__)
+
+
 def read_students(filepath: str) -> list[dict]:
     students = []
     with open(filepath, "r") as file:
@@ -8,6 +15,7 @@ def read_students(filepath: str) -> list[dict]:
             continue
         parts = line.split(",")
         if len(parts) < 10:    # skip corrupted lines
+            logger.warning(f"skkiping corrupted line :{line}")
             continue
         students.append({
             "roll_number": parts[0],
@@ -22,4 +30,5 @@ def read_students(filepath: str) -> list[dict]:
             "fee_status": parts[9]
 
         })
+    logger.info(f"Successfully loaded {len(students)} students")
     return students
