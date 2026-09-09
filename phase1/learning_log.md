@@ -323,3 +323,16 @@ What surprised me: pytest failure output is incredibly clear —
                    what you expected. AI writes code but YOU
                    decide what to test and whether tests
                    prove the right things.
+
+## Day 31 — httpx
+Concept: HTTP requests, GET/POST, status codes,
+         response.json(), error handling, connection errors
+Built: get_user(user_id) — fetch one user with error handling
+       get_all_users() — fetch all users, clean list
+What broke: "user" instead of "users" in URL — 404
+            Missing f-string — {user_id} not replaced
+What surprised me: response.json() converts API response
+                   to Python dictionary automatically.
+                   Same nested dict access as Day 5.
+                   Two types of errors: status code errors
+                   and connection errors — handle both.
