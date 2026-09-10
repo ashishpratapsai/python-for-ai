@@ -308,7 +308,6 @@ What surprised me: level=logging.WARNING hides debug and info
                    %(name)s shows which module logged — 
                    institura_pkg.reader tells you exactly where.
 
-<<<<<<< HEAD
 ## Day 30 — pytest
 Concept: test files, test functions, assert statements,
          running pytest -v, reading failure output
@@ -337,5 +336,16 @@ What surprised me: response.json() converts API response
                    Same nested dict access as Day 5.
                    Two types of errors: status code errors
                    and connection errors — handle both.
-=======
->>>>>>> parent of fe0922c (Revert "Day 29 — Logging: replaced print() with professional logging in institura_pkg")
+
+
+## Day 32 — JSON Deeply
+Concept: json.dumps, json.loads, json.dump, json.load,
+         s = string, no s = file
+Built: save_students_json(), load_students_json(),
+       extract_response() — Anthropic API preview
+What broke: json.loads() on dict that was already parsed.
+            content is a list — content[0]["text"] not content["text"].
+            load result not stored — result fell on the floor.
+What surprised me: Anthropic API response uses same nested
+                   dict access as Day 5. Phase 3 is closer
+                   than it feels.

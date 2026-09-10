@@ -1,0 +1,10 @@
+{
+  "name": "Rahul Sharma",
+  "marks": 85,
+  "passed": true,
+  "subject": [
+    "Physics",
+    "Maths",
+    "Chemistry"
+  ]
+}

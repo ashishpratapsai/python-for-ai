@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Rahul Sharma",
+    "batch": "IIT-JEE-2026",
+    "marks": 85,
+    "fee_status": "paid"
+  },
+  {
+    "name": "Priya Patel",
+    "batch": "NEET-2026",
+    "marks": 92,
+    "fee_status": "paid"
+  },
+  {
+    "name": "Amit Kumar",
+    "batch": "IIT-JEE-2026",
+    "marks": 0,
+    "fee_status": "pending"
+  }
+]
