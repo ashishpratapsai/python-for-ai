@@ -359,3 +359,14 @@ What broke: user_id vs user_ids variable name mismatch
 What surprised me: Async 0.58s vs Sync 2.05s — 3.5x faster.
                    fetch_user(1) creates coroutine but doesn't run it.
                    await actually runs it.
+
+## Day 34 — Context Managers
+Concept: with statement, setup/yield/teardown,
+         @contextmanager decorator, yield connection
+Built: timer() — measures execution time
+       database_connection() — simulates DB open/close
+What broke: _IncompleteInputError in Jupyter — Jupyter issue, not code
+What surprised me: yield is the dividing line.
+                   Before yield = setup.
+                   After yield = teardown.
+                   Whatever you yield becomes the "as" variable.
