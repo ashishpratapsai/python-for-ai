@@ -53,13 +53,13 @@ print("saved")
 
 def load_students_json(filename: str) -> list[dict]:
     with open(filename,"r") as f:
-        loaded = json.load(f)
-    return loaded
+        data = json.load(f)
+    return data
 
-loaded =load_students_json("list_of_students.json")
-print(f"loaded {len(loaded)} students")
-print(loaded)
-for student in loaded:
+students_from_files =load_students_json("list_of_students.json")
+print(f"loaded {len(students_from_files)} students")
+print(students_from_files)
+for student in students_from_files:
     print(student["name"],"|", student["marks"])
 
 #------------------
