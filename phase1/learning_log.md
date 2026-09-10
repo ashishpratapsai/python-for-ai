@@ -349,3 +349,13 @@ What broke: json.loads() on dict that was already parsed.
 What surprised me: Anthropic API response uses same nested
                    dict access as Day 5. Phase 3 is closer
                    than it feels.
+
+## Day 33 — Async/Await
+Concept: async def, await, asyncio.gather(),
+         asyncio.run(), AsyncClient
+Built: fetch_user() async, fetch_multiple_users(),
+       sync vs async speed comparison
+What broke: user_id vs user_ids variable name mismatch
+What surprised me: Async 0.58s vs Sync 2.05s — 3.5x faster.
+                   fetch_user(1) creates coroutine but doesn't run it.
+                   await actually runs it.
