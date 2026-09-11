@@ -370,3 +370,15 @@ What surprised me: yield is the dividing line.
                    Before yield = setup.
                    After yield = teardown.
                    Whatever you yield becomes the "as" variable.
+
+## Day 35 — Generators
+Concept: yield, next(), StopIteration, generator expressions,
+         lazy evaluation, streaming simulation
+Built: count_up(), student_processor() with error handling,
+       valid_marks generator expression, stream_response()
+What broke: int("absent") — ValueError — fixed with try/except
+            Fourth next() call — StopIteration
+What surprised me: Generator remembers its state — which line,
+                   which variables, where in the loop.
+                   () vs [] — same syntax, different behavior.
+                   Phase 3 streaming is just a for loop on a generator.
