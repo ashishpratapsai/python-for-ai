@@ -398,5 +398,14 @@ What surprised me: @timer is just shorthand for
                    Don't need to memorize — need to READ and USE.
 
 
+## Day 37 — Project: YouTube Analytics Fetcher (Day 1)
+Built: get_channel_stats() — real channel data from YouTube API
+       get_latest_videos() — 10 latest videos with titles and dates
+What broke: "item" vs "items" — missing s. videoID vs videoId — case.
+            snippter typo. html.unescape() on wrong field.
+            data not defined before loop.
+What surprised me: YouTube API needs two calls — search for video IDs,
+                   then videos endpoint for stats.
+                   html.unescape() fixes &#39; and &amp; in titles.
 
-                   
+
