@@ -382,3 +382,21 @@ What surprised me: Generator remembers its state — which line,
                    which variables, where in the loop.
                    () vs [] — same syntax, different behavior.
                    Phase 3 streaming is just a for loop on a generator.
+
+## Day 36 — Decorators
+Concept: @decorator syntax, wrapper pattern,
+         *args/**kwargs, decorator with arguments,
+         timer/retry/logging decorators
+Built: timer() decorator, retry(times=3) decorator,
+       log_function() decorator
+What broke: Printed function object instead of calling it —
+            missing () when calling call_api
+What surprised me: @timer is just shorthand for
+                   load_students = timer(load_students).
+                   Decorators add behaviour without
+                   touching the original function.
+                   Don't need to memorize — need to READ and USE.
+
+
+
+                   
