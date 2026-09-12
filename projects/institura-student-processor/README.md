@@ -54,5 +54,5 @@ file I/O, and terminal menus with while loops.
 
 Pure Python — zero external libraries
 Part of my 28-week Python for AI Automation series
-YouTube: [\[your channel link\]](https://www.youtube.com/@AutomatewithAshish)
+YouTube: https://www.youtube.com/@AutomatewithAshish
 GitHub: https://github.com/ashishpratapsai/python-for-ai
