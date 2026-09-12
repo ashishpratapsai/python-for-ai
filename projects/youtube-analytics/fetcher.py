@@ -68,10 +68,58 @@ def get_latest_videos(max_results: int =10)-> list[dict]:
     return videos
 
 
-if __name__ == "__main__":
-    stats = get_channel_stats()
-    print(stats)
+# if __name__ == "__main__":
+#     stats = get_channel_stats()
+#     print(stats)
 
+#     videos = get_latest_videos()
+#     print(videos)
+
+
+
+#------------
+
+# getting videos data
+
+def get_video_stats(video_ids: list[str])->list[dict]:
+    ids_string = ",".join(video_ids) #join list into comma- seprated string
+
+    response = httpx.get(
+        f"{BASE_URL}/videos",
+        params={
+            "part":"snippet,statistics",
+            "id": ids_string,
+            "key": API_KEY
+
+        }
+    )
+
+    if response.status_code !=200:
+        return[]
+
+    data = response.json()
+    video =[]
+    for item in data['items']:
+        snippet = item.get("snippet",{})
+        stats = item.get("statistics",{})
+        video.append({
+            "video_id": item["id"],
+            "title": html.unescape(snippet.get("title","Unknown")),
+            "views": int(stats.get("viewCount",0)),
+            "likes": int(stats.get("likeCount",0)),
+            "comments": int(stats.get("commentCount",0))
+
+        })
+    return video
+
+
+#-----------
+if __name__ == "__main__":
     videos = get_latest_videos()
-    print(videos)
+    video_ids =[v["video_id"] for v in videos]
+    stats = get_video_stats(video_ids)
+    for s in stats:
+        print(s)
+
+
 
