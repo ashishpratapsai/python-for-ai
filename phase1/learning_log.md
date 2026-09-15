@@ -433,3 +433,15 @@ What broke: max_token vs max_tokens. Missing comma after model.
 What surprised me: System prompt completely changes Claude's personality.
                    Same question — tutorial vs Hinglish depending on system.
                    81 tokens = less than 0.1 paisa per call.
+
+## Day 44 — Multi-turn Conversations
+Concept: conversation_history list, stateless API,
+         sending full history every call
+Built: chat(), chat_with_history()
+What broke: Two if __name__ blocks — Python only runs last one.
+            Layer 2 defined after if __name__ — functions must
+            be defined before calling.
+            .env not found — moved to same folder.
+What surprised me: Claude has zero memory between calls.
+                   YOU are responsible for all memory.
+                   Sending full history = Claude remembers everything.
