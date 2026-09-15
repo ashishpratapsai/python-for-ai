@@ -423,3 +423,13 @@ What broke: path vs Path typo. exixts vs exists typo.
 What surprised me: csv.DictReader automatically uses header row as keys.
                    Pydantic dot notation — s.marks not s["marks"].
                    Same ETL pattern as Phase 1 but professional.
+
+## Day 43 — Anthropic SDK Basics
+Concept: Anthropic client, messages.create(), model,
+         max_tokens, system prompt, usage tracking
+Built: ask_claude(), ask_claude_with_usage()
+What broke: max_token vs max_tokens. Missing comma after model.
+            content: question missing colon. content[0]["text"] wrong.
+What surprised me: System prompt completely changes Claude's personality.
+                   Same question — tutorial vs Hinglish depending on system.
+                   81 tokens = less than 0.1 paisa per call.
