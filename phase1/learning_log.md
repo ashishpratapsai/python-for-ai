@@ -409,3 +409,17 @@ What surprised me: YouTube API needs two calls — search for video IDs,
                    html.unescape() fixes &#39; and &amp; in titles.
 
 
+## Day 39 — Project: Institura Analytics Dashboard (SHIPPED)
+Concept: Pydantic models in real project, csv.DictReader,
+         pathlib, logging, type hints all combined
+Built: data.py — Student Pydantic model + CSV loader
+       analyzer.py — analyse_batch(), get_batch_names(), filter_by_batch()
+       reporter.py — markdown report with batch-wise breakdown
+       main.py — entry point connecting all modules
+What broke: path vs Path typo. exixts vs exists typo.
+            s in s.marks >= 40 — wrong status check.
+            Missing topper_marks in analyzer return dict.
+            Extra ( brackets in f-strings.
+What surprised me: csv.DictReader automatically uses header row as keys.
+                   Pydantic dot notation — s.marks not s["marks"].
+                   Same ETL pattern as Phase 1 but professional.
