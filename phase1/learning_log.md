@@ -468,4 +468,15 @@ What surprised me: Message 2 had 548 tokens vs 268 in message 1.
                    Input tokens almost doubled because full history sent.
                    2 messages cost ₹0.82. Scale matters.
 
-                   
+## Day 47 — Tool Use Part 1
+Concept: tool definitions, tool use loop, stop_reason,
+         execute_tool(), multiple tools, descriptions matter
+Built: calculate tool, get_student_info tool,
+       ask_with_tools(), ask_with_multiple_tools()
+What broke: calcullate typo. sbtract typo in enum.
+            Printed tool_name instead of tool_input.
+What surprised me: Claude chose the right tool automatically
+                   based on descriptions alone. Never told it
+                   which to use — it decided.
+                   stop_reason = "tool_use" vs "end_turn" —
+                   that's how you know if Claude needs a tool.
