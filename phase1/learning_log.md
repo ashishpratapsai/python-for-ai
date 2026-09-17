@@ -456,3 +456,16 @@ What surprised me: Day 35 stream_response() was exact
                    preparation for this. Same pattern —
                    for loop, end="", flush=True.
                    Must collect full_response to store in history.
+
+
+## Day 46 — Token Counting
+Concept: calculate_cost(), cumulative tracking,
+         input tokens compound across conversation
+Built: calculate_cost(), ask_with_cost(), chat_with_cost()
+What broke: Missing comma in function call.
+            Single quotes inside f-strings.
+What surprised me: Message 2 had 548 tokens vs 268 in message 1.
+                   Input tokens almost doubled because full history sent.
+                   2 messages cost ₹0.82. Scale matters.
+
+                   
