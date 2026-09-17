@@ -445,3 +445,14 @@ What broke: Two if __name__ blocks — Python only runs last one.
 What surprised me: Claude has zero memory between calls.
                    YOU are responsible for all memory.
                    Sending full history = Claude remembers everything.
+
+## Day 45 — Streaming
+Concept: client.messages.stream(), stream.text_stream,
+         flush=True, full_response collection
+Built: stream_response(), stream_chat()
+What broke: Two if __name__ blocks — only last one runs.
+            Missing comma in function call.
+What surprised me: Day 35 stream_response() was exact
+                   preparation for this. Same pattern —
+                   for loop, end="", flush=True.
+                   Must collect full_response to store in history.
