@@ -480,3 +480,21 @@ What surprised me: Claude chose the right tool automatically
                    which to use — it decided.
                    stop_reason = "tool_use" vs "end_turn" —
                    that's how you know if Claude needs a tool.
+
+## Day 48 — Tool Use Part 2 (Agent Loop)
+Concept: while loop around tool use, Claude orchestrates
+         multiple tool calls, stop_reason drives the loop,
+         streaming final answer
+Built: run_agent() — full agent loop
+       run_agent_streaming() — same loop + streaming final answer
+What broke: Missing commas in tool definitions.
+            input_scheme vs input_schema.
+            tool_results vs tool_result (singular).
+            calculate vs calculation name mismatch.
+What surprised me: Claude called 3 tools automatically
+                   for one question — get_student_info,
+                   divide, multiply. Never told it to.
+                   It figured out the steps itself.
+                   messages.create() for tool detection,
+                   messages.stream() for final answer —
+                   different tools for different jobs.
