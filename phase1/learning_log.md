@@ -498,3 +498,14 @@ What surprised me: Claude called 3 tools automatically
                    messages.create() for tool detection,
                    messages.stream() for final answer —
                    different tools for different jobs.
+
+## Day 49 — Structured Outputs
+Concept: Pydantic models for LLM output, JSON mode vs tool use mode
+Built: StudentAnalysis model, analyse_student_json(),
+       analyse_student_tool()
+What broke: Missing import json. Missing comma after tool_choice.
+            Claude wrapped JSON in markdown — json.loads() crashed.
+What surprised me: Tool use mode returns clean dict directly —
+                   no markdown, no parsing, 100% reliable.
+                   JSON mode is fragile — Claude wraps in ```json.
+                   Tool use is the production standard.
