@@ -509,3 +509,15 @@ What surprised me: Tool use mode returns clean dict directly —
                    no markdown, no parsing, 100% reliable.
                    JSON mode is fragile — Claude wraps in ```json.
                    Tool use is the production standard.
+
+
+## Day 50 — Prompt Caching
+Concept: cache_control ephemeral, cache_created vs cache_read,
+         1024 token minimum, 90% cost reduction
+Built: ask_without_cache(), ask_with_cache()
+What broke: Missing comma after system list. input_token vs
+            input_tokens. Double quotes inside f-string.
+What surprised me: 3,764 tokens without caching vs 41 with.
+                   98.9% reduction. Cache created on first call,
+                   read on all subsequent calls.
+                   One structural change — massive cost impact.
