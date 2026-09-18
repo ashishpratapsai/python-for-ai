@@ -521,3 +521,15 @@ What surprised me: 3,764 tokens without caching vs 41 with.
                    98.9% reduction. Cache created on first call,
                    read on all subsequent calls.
                    One structural change — massive cost impact.
+
+## Day 51 — Vision and PDF
+Concept: multimodal messages, content as list of blocks,
+         base64 encoding, URL vs local file vs PDF
+Built: analyze_image_url(), analyze_image_file(), analyze_pdf()
+What broke: __main__ missing closing underscores.
+            SVG not supported — switched to PNG URL.
+            standard_b64decode vs standard_b64encode — wrong direction.
+What surprised me: Claude described every detail of the screenshot —
+                   app name, button colors, pink iMac illustration.
+                   Content becomes a list of blocks not a string.
+                   Same base64 pattern for both images and PDFs.
