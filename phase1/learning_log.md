@@ -545,3 +545,17 @@ What surprised me: Claude adjusted tone automatically —
                    encouraging for Rahul, celebratory for Priya,
                    constructive + fee reminder for Amit.
                    custom_id links result back to student.
+
+## Day 53 — Error Handling and Retries
+Concept: try/except per error type, tenacity @retry,
+         exponential backoff, retry vs don't retry,
+         fallback pattern
+Built: ask_claude_safe(), ask_claude_with_retry(),
+       ask_claude_production()
+What broke: Layer 3 with tenacity caused "Killed: 9" —
+            simplified to wrap ask_claude_with_retry
+            in try/except instead.
+What surprised me: Three error types worth retrying —
+                   rate limit, timeout, connection.
+                   Two not worth retrying — auth, bad request.
+                   Production code never shows raw errors to users.
