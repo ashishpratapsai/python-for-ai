@@ -533,3 +533,15 @@ What surprised me: Claude described every detail of the screenshot —
                    app name, button colors, pink iMac illustration.
                    Content becomes a list of blocks not a string.
                    Same base64 pattern for both images and PDFs.
+
+## Day 52 — Batch Processing
+Concept: batch API, custom_id, processing_status,
+         async results, 50% cost reduction
+Built: create_batch(), get_batch_results()
+What broke: messsage triple s typo. results.item() vs items().
+            Missing space in f-string — names joined with next word.
+            Batch takes 1-5 mins — 30 seconds not enough.
+What surprised me: Claude adjusted tone automatically —
+                   encouraging for Rahul, celebratory for Priya,
+                   constructive + fee reminder for Amit.
+                   custom_id links result back to student.
