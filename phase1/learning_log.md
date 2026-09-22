@@ -559,3 +559,14 @@ What surprised me: Three error types worth retrying —
                    rate limit, timeout, connection.
                    Two not worth retrying — auth, bad request.
                    Production code never shows raw errors to users.
+
+## Day 54 — OpenAI SDK
+Concept: OpenAI SDK patterns, model abstraction,
+         provider switching without code changes
+Built: ask_openai(), ask_anthropic(), ask_model()
+What broke: Path(__file__).parents vs .parent — singular
+What surprised me: OpenAI uses response.choices[0].message.content
+                   Anthropic uses response.content[0].text
+                   Everything else is almost identical.
+                   Model abstraction means switching providers
+                   in one line — rest of code unchanged.
