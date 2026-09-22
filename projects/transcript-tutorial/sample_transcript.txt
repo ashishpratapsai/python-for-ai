@@ -1,0 +1,32 @@
+Hey everyone, welcome back to the channel. Today we're going to learn about Python functions.
+
+Functions are one of the most important concepts in Python. They let you write code once and reuse it multiple times. Let me show you how they work.
+
+To create a function in Python, you use the def keyword followed by the function name and parentheses. Here's a simple example:
+
+def greet(name):
+    return f"Hello, {name}!"
+
+result = greet("Ashish")
+print(result)
+
+This will print Hello, Ashish! to the screen.
+
+Now let's talk about parameters. Parameters are the inputs to your function. In our example, name is a parameter. When you call greet("Ashish"), you're passing "Ashish" as an argument.
+
+You can also have default parameters. This means if you don't pass a value, the function uses a default:
+
+def greet(name="World"):
+    return f"Hello, {name}!"
+
+print(greet())         # prints Hello, World!
+print(greet("Ashish")) # prints Hello, Ashish!
+
+Functions can return values using the return keyword. Without return, the function returns None automatically.
+
+The key things to remember about functions:
+First, always use descriptive names for your functions.
+Second, keep functions small and focused on one task.
+Third, use parameters to make functions flexible and reusable.
+
+That's it for today. Functions are the building blocks of good Python code. Practice writing them and you'll get comfortable very quickly.
