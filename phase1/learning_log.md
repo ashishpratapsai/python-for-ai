@@ -587,3 +587,40 @@ What surprised me: Tool use returned perfectly structured data.
                    from transcript — navy blue, neon green, cartoon snake.
                    30 seconds from raw transcript to professional tutorial.
                    Real product. Ships tomorrow on portfolio.
+
+## Days 59-62 — Institura AI Parent Summary (SHIPPED)
+
+Concept: Production architecture — separate files for models,
+         data loading, batch processing, reporting.
+         sys.argv for CLI arguments.
+         Batch API for bulk processing.
+         Pydantic validation on messy CSV data.
+
+Built:
+  models.py   — Student and ParentMessage Pydantic models
+                with validators for messy data
+  data.py     — loads students.csv → list[Student]
+  generator.py— generate_summaries() submits batch,
+                get_results() retrieves when ready
+  reporter.py — save_report() writes summaries.md
+  main.py     — submit batch + save batch_id.txt
+                --check flag to retrieve results later
+
+What broke:
+  student vs Student — lowercase is variable, uppercase is class
+  exixts vs exists typo
+  results.items vs results.items() — missing parentheses
+  check_batch not called — missing ()
+  else missing — main() ran every time including --check
+  title() and strip() missing () — returned method objects
+  batch needed 5 mins not 60 seconds
+
+What surprised me:
+  Claude adjusted tone per student automatically —
+  celebratory for Sneha (96), urgent for Amit (35),
+  fee reminder only when pending.
+  sys.argv lets users pass --check flag from terminal.
+  Saving batch_id.txt is the production pattern —
+  never sleep and wait, submit and check separately.
+  6 professional parent summaries in one batch call.
+  This is a real Institura feature ready to ship.
