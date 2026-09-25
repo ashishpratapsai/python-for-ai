@@ -624,3 +624,43 @@ What surprised me:
   never sleep and wait, submit and check separately.
   6 professional parent summaries in one batch call.
   This is a real Institura feature ready to ship.
+
+
+## Day 63 — ReAct Pattern (Reason + Act + Observe)
+
+Concept: ReAct = Reason before every action.
+         Claude thinks out loud before calling tools.
+         Makes agents debuggable, reliable, accurate.
+         Parallel tool calls — handle all tool_use blocks.
+
+Built: run_react_agent() — full ReAct loop
+       execute_tool() — routes to correct function
+       students_db + batch_stats_db — fake database
+       Handled parallel tool calls correctly
+
+What broke:
+- Missing commas in tool definitions — SyntaxError
+- Semicolon instead of colon in required field
+- tool_name["batch_name"] instead of tool_input["batch_name"]
+- Missing f in f-string for ACTION print
+- "assistatnt" typo in role
+- "=" * 50 printed as "=*50" literally
+- "OBERATION" typo
+- Parallel tool calls crashed — next() only got first tool_use,
+  second tool_use had no tool_result — API rejected with 400
+
+Key fix for parallel tool calls:
+  Old: tool_use_block = next(b for b in response.content
+                             if b.type == "tool_use")
+  New: tool_use_blocks = [b for b in response.content
+                          if b.type == "tool_use"]
+       for each block → execute → collect all results
+       send ALL results in one user message
+
+What surprised me:
+  Claude planned the entire sequence autonomously —
+  fetched both students in parallel, both batch stats
+  + calculation in parallel, then computed percentage.
+  5 tool calls across 4 steps. Zero instructions on order.
+  ReAct thinking visible — can debug exactly why Claude
+  made each decision. This is what agents actually are.
