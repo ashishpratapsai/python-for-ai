@@ -664,3 +664,19 @@ What surprised me:
   5 tool calls across 4 steps. Zero instructions on order.
   ReAct thinking visible — can debug exactly why Claude
   made each decision. This is what agents actually are.
+
+
+## Day 64 — ReAct Part 2 (Conversation Memory)
+
+Concept: Class-based agent with persistent memory.
+         self.messages persists across .chat() calls.
+         Claude remembers context — no repeated tool calls.
+         Short-term memory lives in RAM — gone when program ends.
+
+Built: ReactAgent class
+       __init__ — initializes self.messages and self.system
+       chat() — appends to existing history, runs ReAct loop,
+                saves final answer to self.messages
+
+What broke:
+  "conten" typo — missing t — API rejected with Field required
