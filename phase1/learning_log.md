@@ -680,3 +680,37 @@ Built: ReactAgent class
 
 What broke:
   "conten" typo — missing t — API rejected with Field required
+
+
+
+## Day 65 — Tool Design
+
+Concept: Tool descriptions ARE agent instructions.
+         Bad tools = agent fails even with correct logic.
+         Good tools = agent succeeds on first attempt.
+         5 rules of good tool design.
+
+Built: bad_tools vs good_tools comparison
+       Same question, same database, same agent loop
+       Bad tools: 4 failed attempts, gave up, asked user
+       Good tools: perfect answer on first attempt
+
+5 Rules of Good Tool Design:
+1. NAME — verb + noun, specific (search_student not search)
+2. DESCRIPTION — when to use, what returns, edge cases
+3. PARAMETER NAMES — full words (name not q, operation not op)
+4. ENUM — constrain choices when possible
+5. ERROR RETURNS — tell Claude what went wrong so it recovers
+
+What broke: nothing — copy pasted and ran cleanly
+
+What surprised me:
+  Bad tools passed "Rahul Sharma's marks" as search query.
+  students_db.get("rahul sharma's marks") → not found.
+  Parameter name "q" gave Claude zero guidance.
+  Parameter name "name" + example "Rahul Sharma" →
+  Claude passed exactly the right thing immediately.
+  Tool descriptions are not documentation — they are
+  instructions Claude follows when deciding what to call.
+
+  
