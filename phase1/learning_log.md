@@ -714,3 +714,40 @@ What surprised me:
   instructions Claude follows when deciding what to call.
 
   
+
+## Days 66-67 — Agent Memory
+
+Concept: Two types of long-term memory that survive restarts.
+         ConversationMemory saves to JSON file.
+         VectorMemory saves to ChromaDB with semantic search.
+         MemoryAgent combines both with ReAct loop.
+
+Built:
+  memory.py:
+    ConversationMemory — _load() on init, _persist() on save,
+                         get_recent() returns API-ready format
+    VectorMemory — PersistentClient saves to chroma_db/,
+                   search() finds semantically similar facts
+
+  main.py:
+    MemoryAgent — searches vec_memory before each chat,
+                  loads conv_memory for recent history,
+                  saves both after every response
+
+What broke:
+  ANTHROPI_API_KEY typo — missing C
+  {"type","qa"} set not dict — needed colon not comma
+  Missing { in tool_result.append
+  step +1 vs step += 1
+
+What surprised me:
+  agent2 (new object, fresh messages) answered "what did
+  we discuss about Rahul" correctly — loaded from JSON file.
+  Claude said "Rahul struggles with calculus" without being
+  asked — retrieved from ChromaDB test data automatically.
+  Vector memory found facts from a completely different
+  program run. Real persistence. Not a demo.
+
+Memory types:
+  Short-term: self.messages — RAM, dies when program ends
+  Long-term:  JSON + ChromaDB — disk, survives restarts
