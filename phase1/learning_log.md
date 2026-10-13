@@ -751,3 +751,43 @@ What surprised me:
 Memory types:
   Short-term: self.messages — RAM, dies when program ends
   Long-term:  JSON + ChromaDB — disk, survives restarts
+
+
+
+## Day 68 — Embeddings
+
+Concept: Text converted to numbers (vectors).
+         Similar meaning = similar numbers.
+         Cosine similarity measures how close two vectors are.
+         Batch embedding = one API call for multiple texts.
+
+Built:
+  embed_text()        — single text → 1024 numbers (voyage-3)
+  embed_texts()       — batch texts → multiple embeddings, one call
+  cosine_similarity() — math formula, returns 0-1 score
+  find_most_similar() — [query] + documents → batch embed →
+                        compare → sort by similarity → return ranked
+
+Key patterns:
+  [query] + documents — combine into one list for batch call
+  all_embeddings[0]   — query vector
+  all_embeddings[1:]  — document vectors
+
+What broke:
+  embed_text vs embed_texts — wrong function for batch
+  doc_embeddings vs doc_emb — passed whole list not single vector
+  sort and return inside for loop — returned after first item only
+  rate limit on free tier — 3 RPM, fixed with batch embedding
+
+What surprised me:
+  1024 numbers per sentence — that's what "meaning" looks like
+  "student failed" vs "pupil did not pass" = 0.5072 similarity
+  "student failed" vs "the weather is sunny" = 0.1614 similarity
+  Different words, same meaning = high score. Proof of semantic search.
+  Sneha (top student) ranked #1 for "needs help" query —
+  shared word "student" confused the model.
+  Pure semantic search has limits — reranking fixes this (Day 73).
+
+What to remember:
+  Concept: text → numbers → compare numbers → find similar meaning
+  Syntax: look up from Notion — don't memorize cosine formula
