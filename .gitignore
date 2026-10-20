@@ -6,3 +6,5 @@ __pycache__/
 .envchroma_db/
 .env
 .env.*
+.env
+.env.*
