@@ -831,3 +831,52 @@ What surprised me:
   Query 3 found both fee-pending students correctly
   Already seeing real RAG limitations — Rohan keyword overlap
   Metadata filtering would fix this completely
+
+
+
+## Day 70 — RAG Part 1: Chunking
+
+Concept: Split documents into chunks before embedding.
+         Can't put entire document in Claude's context.
+         Retrieve only relevant chunks — focused, accurate answers.
+
+Three chunking strategies:
+  chunk_by_paragraph — split on blank lines (\n\n)
+                        best for structured docs with clear sections
+  chunk_by_size      — fixed character count with overlap
+                        overlap critical — prevents info loss at boundaries
+                        best for unstructured text
+  chunk_by_sentences — group N sentences together
+                        middle ground
+
+Built:
+  chunk_by_paragraph() — text.split("\n\n")
+  chunk_by_size()      — while loop with start/end/overlap
+  chunk_by_sentences() — split on ". " then group N together
+  embed_and_store()    — Voyage AI + ChromaDB (same as Day 69)
+  retrieve()           — query → closest chunks
+
+Results:
+  Paragraph: 6 chunks (one per chapter)
+  Size:      9 chunks
+  Sentence:  7 chunks
+
+  All 3 queries retrieved correct chapter on first result:
+  "fee payment deadlines" → CHAPTER 4 FEE STRUCTURE ✅
+  "how are students graded" → CHAPTER 3 ASSESSMENT ✅
+  "what support" → CHAPTER 5 STUDENT SUPPORT ✅
+
+What broke:
+  p.split() vs p.strip() — split makes list of words, strip removes whitespace
+  chunks vs chunk variable name conflict in chunk_by_size
+  query_embedding vs query_embeddings naming mismatch
+  hnsw:sapce typo
+  chromadb.collection vs chromadb.Collection — capital C
+  samole vs sample filename typo
+  collection.count vs collection.count()
+
+What to remember:
+  chunk → embed → store → retrieve → give to Claude
+  Overlap in size chunking = no info lost at boundaries
+  Paragraph chunking = best for structured documents
+  These chunks become Claude's context in Day 72
