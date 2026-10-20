@@ -791,3 +791,43 @@ What surprised me:
 What to remember:
   Concept: text → numbers → compare numbers → find similar meaning
   Syntax: look up from Notion — don't memorize cosine formula
+
+
+## Day 69 — Vector Databases
+
+Concept: ChromaDB stores embeddings and searches them fast.
+         Voyage AI creates high-quality embeddings.
+         Together = production-grade semantic search.
+         Manual search (Day 68) doesn't scale.
+         ChromaDB HNSW index handles 100k+ docs in milliseconds.
+
+Built:
+  create_vector_store() — PersistentClient + cosine space
+  add_documents()       — embed with Voyage, store in ChromaDB
+  search()              — embed query with Voyage, ChromaDB finds closest
+
+Key pattern:
+  Store with model X → search with model X (always consistent)
+  Never mix embedding models in same collection
+
+Results:
+  Query 1: Amit Kumar (35, failing) ranked #1 ✅
+  Query 2: IIT-JEE batch stats (0.3141) ranked #1 ✅
+  Query 3: Rohan + Amit (both fee pending) ranked #1 and #2 ✅
+
+Limitation observed:
+  Rohan appeared in Query 1 and 2 — "IIT-JEE batch" keyword overlap
+  Fix: metadata filtering (where={"type": "batch_stats"})
+  Fix: reranking (Day 73)
+
+What broke:
+  query_embedding vs query_embeddings — singular/plural
+  results["distance"] vs results["distances"] — plural
+  [query][0] vs [query])[0] — bracket position
+  Rate limit on free tier — added card to unlock standard RPM
+
+What surprised me:
+  Query 2 returned IIT-JEE batch stats at 0.3141 — very close match
+  Query 3 found both fee-pending students correctly
+  Already seeing real RAG limitations — Rohan keyword overlap
+  Metadata filtering would fix this completely
