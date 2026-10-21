@@ -1,0 +1,8 @@
+# ChromaDB
+chroma_db/
+*.sqlite3
+*.bin
+
+# Environment files
+.env
+.env.*

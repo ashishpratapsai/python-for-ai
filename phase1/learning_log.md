@@ -896,3 +896,16 @@ Key insight: Vector search finds semantically similar text. Metadata filters con
 Surprised by: Layer 1 returned fee_report before student_record for "urgent academic help" — the word "pending" in fee records pulled it semantically closer than expected.
 
 What broke: None — clean run first try after fixing bugs during typing.
+
+
+## Day 72 — RAG Generation: connecting retrieval to Claude
+
+Built: Complete RAG pipeline — retrieve chunks with Voyage, 
+pass to Claude Haiku as context, get grounded answer back.
+
+Key: system prompt constrains Claude to answer ONLY from context.
+Q3 ("fee structure") returned "I don't have that information" — 
+guardrail working. Claude refuses to hallucinate.
+
+generate_answer() is decoupled from retrieve() — swap retrieval 
+strategy without touching generation.
