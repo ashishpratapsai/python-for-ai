@@ -880,3 +880,19 @@ What to remember:
   Overlap in size chunking = no info lost at boundaries
   Paragraph chunking = best for structured documents
   These chunks become Claude's context in Day 72
+
+
+
+
+## Day 71 — RAG Part 2: Retrieval with metadata filtering and multi-query
+
+Built: Three-layer retrieval system on Institura coaching knowledge base
+- Layer 1: Basic vector search — semantic similarity only
+- Layer 2: Filtered retrieval — where={"doc_type": "batch_stats"} solves the Rohan problem (student records can't pollute batch stats queries)
+- Layer 3: Multi-query — search from two angles, deduplicate by text key (keep lower distance), sort by relevance
+
+Key insight: Vector search finds semantically similar text. Metadata filters constrain WHICH documents are searched. Multi-query widens the net across different phrasings of the same intent.
+
+Surprised by: Layer 1 returned fee_report before student_record for "urgent academic help" — the word "pending" in fee records pulled it semantically closer than expected.
+
+What broke: None — clean run first try after fixing bugs during typing.
