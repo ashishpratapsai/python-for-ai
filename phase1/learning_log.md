@@ -917,3 +917,9 @@ Concept: Reranking with Voyage rerank-2. Retrieve 5 chunks broadly, rerank to to
 Built: rerank() function. Voyage returns index + relevance_score. Use index to pull original chunk, attach score, return top N.
 What broke: named variable `rerank` same as function — overwrote the function on first loop iteration. Fixed by renaming to `reranked`.
 What surprised me: Q1 — vector search ranked fee record first, reranker correctly promoted academic record. Reranker understood meaning, not just words.
+
+
+## Day 74 — Guardrails
+Built: input guardrail (blocks off-topic queries) + output guardrail (checks if answer is grounded in context).
+What broke: check_output() gave a false positive — flagged a correct answer as hallucinated. LLM-as-judge is not 100% reliable.
+What surprised me: a typo in the test ("Neha" instead of "Sneha") was correctly caught as hallucinated — the guardrail worked exactly as intended.
