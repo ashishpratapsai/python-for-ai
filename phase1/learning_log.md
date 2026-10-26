@@ -923,3 +923,10 @@ What surprised me: Q1 — vector search ranked fee record first, reranker correc
 Built: input guardrail (blocks off-topic queries) + output guardrail (checks if answer is grounded in context).
 What broke: check_output() gave a false positive — flagged a correct answer as hallucinated. LLM-as-judge is not 100% reliable.
 What surprised me: a typo in the test ("Neha" instead of "Sneha") was correctly caught as hallucinated — the guardrail worked exactly as intended.
+
+
+## Day 75 — MCP Server from Scratch
+Concept: MCP (Model Context Protocol) — expose Python functions as tools Claude Code can call.
+Built: institura-tools MCP server with 3 tools: add, get_student, check_fee_status. Connected to Claude Code. Tested with "What are Sneha Singh's marks?" — Claude called get_student automatically and returned correct data.
+What broke: MCP registered in wrong folder (home directory instead of project folder). claude mcp add must be run from inside the project folder.
+What surprised me: Claude Code reads docstrings to decide which tool to call. The description IS the routing logic.
