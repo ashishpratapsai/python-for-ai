@@ -930,3 +930,12 @@ Concept: MCP (Model Context Protocol) — expose Python functions as tools Claud
 Built: institura-tools MCP server with 3 tools: add, get_student, check_fee_status. Connected to Claude Code. Tested with "What are Sneha Singh's marks?" — Claude called get_student automatically and returned correct data.
 What broke: MCP registered in wrong folder (home directory instead of project folder). claude mcp add must be run from inside the project folder.
 What surprised me: Claude Code reads docstrings to decide which tool to call. The description IS the routing logic.
+
+
+
+## Day 76 — MCP + SQLite
+Built: Institura MCP server v2 — SQLite backend, 1 resource, 3 tools.
+What worked: Claude read the resource automatically before calling get_student. Tool order was resource → write → read. Exactly right.
+What broke: COUNT(*) without FROM crashed. Missing FROM in SQL = table not found.
+What surprised me: Claude caught a bug in my error message — was pointing to a function name instead of the resource URI. The docstring IS the routing logic.
+Key insight: The docstring in @mcp.tool() is not documentation. It's instructions to the LLM. Write it like you're telling Claude what to do, not describing the function.
