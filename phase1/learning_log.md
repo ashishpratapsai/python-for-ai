@@ -930,3 +930,26 @@ Concept: MCP (Model Context Protocol) — expose Python functions as tools Claud
 Built: institura-tools MCP server with 3 tools: add, get_student, check_fee_status. Connected to Claude Code. Tested with "What are Sneha Singh's marks?" — Claude called get_student automatically and returned correct data.
 What broke: MCP registered in wrong folder (home directory instead of project folder). claude mcp add must be run from inside the project folder.
 What surprised me: Claude Code reads docstrings to decide which tool to call. The description IS the routing logic.
+
+## Day 76 — MCP + SQLite
+Built: Institura MCP server v2 — SQLite backend, 1 resource, 3 tools.
+What worked: Claude read the resource automatically before calling get_student. Tool order was resource → write → read. Exactly right.
+What broke: COUNT(*) without FROM crashed. Missing FROM in SQL = table not found.
+What surprised me: Claude caught a bug in my error message — was pointing to a function name instead of the resource URI. The docstring IS the routing logic.
+
+
+
+## Day 77 — LangChain Basics
+Built: Multi-turn conversation using ChatAnthropic, SystemMessage, HumanMessage, AIMessage.
+What worked: SystemMessage shaped the response correctly — "one sentence only" was obeyed. Appending AIMessage to the list gave the model full context for Turn 2.
+What broke: Empty API key error — `load_dotenv()` was missing. Bearer token was blank because the key never loaded. Also fought venv mismatch: was activating python-for-ai/.venv instead of phase4/.venv, so langchain wasn't found.
+What surprised me: Conversation memory is just a Python list. No magic. You append to it yourself and pass it to .invoke(). That's the entire memory system.
+Key insight: LangChain's value is not shorter code — it's a unified interface. Swap ChatAnthropic for ChatOpenAI and nothing else changes. The abstraction is about provider interchangeability, not convenience.
+
+
+## Day 78 — LangGraph Basics
+Built: A StateGraph with one node (call_llm) and a conditional edge that loops back if the answer is too short, exits if long enough or retry limit reached.
+What worked: The state dictionary passing cleanly between nodes. Returning only changed fields from a node — LangGraph merges the rest automatically.
+What broke: Infinite loop when asking Claude to say "yes" — the answer was always under 100 chars so retry never triggered done. Had to Ctrl+C.
+What surprised me: The fix was simple — add a retries counter to the state and check it in the conditional function. The graph itself didn't need to change, only the state and the condition.
+Key insight: LangGraph is a state machine where nodes are functions and edges are routing rules. The state is a shared dictionary every node reads from and writes to. Conditional edges are just Python functions that return a string — that string decides the next node.
